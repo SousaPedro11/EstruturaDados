@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-<<<<<<< HEAD
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="libraries/commons-lang3-3.7/commons-lang3-3.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
-=======
-  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
-  <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar" sourcepath="M2_REPO/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/h2database/h2/1.4.196/h2-1.4.196.jar" sourcepath="M2_REPO/com/h2database/h2/1.4.196/h2-1.4.196-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/projectlombok/lombok/1.16.20/lombok-1.16.20.jar" sourcepath="M2_REPO/org/projectlombok/lombok/1.16.20/lombok-1.16.20-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/testng/testng/6.14.3/testng-6.14.3.jar" sourcepath="M2_REPO/org/testng/testng/6.14.3/testng-6.14.3-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/beust/jcommander/1.72/jcommander-1.72.jar" sourcepath="M2_REPO/com/beust/jcommander/1.72/jcommander-1.72-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar" sourcepath="M2_REPO/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6-sources.jar"/>
-</classpath>
->>>>>>> 100dcb3cd54bfec5c71d74cdd6b89d4be5775844

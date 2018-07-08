@@ -40,11 +40,7 @@ public class Main {
 
 	}
 
-<<<<<<< HEAD
 	private static final int tam = 1000;
-=======
-	private static final int tam = 400000;
->>>>>>> 100dcb3cd54bfec5c71d74cdd6b89d4be5775844
 	private static int[] arrayG = arrayRandomico();
 
 	/**
