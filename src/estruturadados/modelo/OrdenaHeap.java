@@ -2,7 +2,7 @@ package estruturadados.modelo;
 
 public class OrdenaHeap {
 
-    public void sort(final int array[]) {
+    public void ordenar(final int array[]) {
 
         final int tamanho = array.length;
 

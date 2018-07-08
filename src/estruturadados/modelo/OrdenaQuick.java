@@ -26,14 +26,14 @@ public class OrdenaQuick {
         return i + 1;
     }
 
-    public void sort(final int array[], final int inicio, final int fim) {
+    public void ordenar(final int array[], final int inicio, final int fim) {
 
         if (inicio < fim) {
             final int indiceparticao = this.particao(array, inicio, fim);
 
             // Ordena recursivamente os elementos antes e depois do particionamento
-            this.sort(array, inicio, indiceparticao - 1);
-            this.sort(array, indiceparticao + 1, fim);
+            this.ordenar(array, inicio, indiceparticao - 1);
+            this.ordenar(array, indiceparticao + 1, fim);
         }
     }
 
@@ -43,6 +43,5 @@ public class OrdenaQuick {
         for (int i = 0; i < tamanho; ++i) {
             System.out.print(arr[i] + " ");
         }
-        System.out.println();
     }
 }

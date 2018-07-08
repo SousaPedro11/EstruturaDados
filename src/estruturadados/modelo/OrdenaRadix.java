@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class OrdenaRadix {
 
     // Obter valor maximo
-    static int getMax(final int array[], final int n) {
+    private int getMax(final int array[], final int n) {
 
         int max = array[0];
         for (int i = 1; i < n; i++) {
@@ -17,7 +17,7 @@ public class OrdenaRadix {
     }
 
     // Faz a contagem da matriz de acordo com o digito mais significativo
-    static void countSort(final int array[], final int n, final int exp) {
+    private void countSort(final int array[], final int n, final int exp) {
 
         final int saida[] = new int[n];
         int i;
@@ -45,13 +45,13 @@ public class OrdenaRadix {
     }
 
     // Funcao que ordena usando RadixSort
-    static void radixsort(final int arr[], final int n) {
+    public void ordenar(final int arr[], final int n) {
 
         // Encontra o maior numero
-        final int m = OrdenaRadix.getMax(arr, n);
+        final int m = this.getMax(arr, n);
 
         for (int exp = 1; (m / exp) > 0; exp *= 10) {
-            OrdenaRadix.countSort(arr, n, exp);
+            this.countSort(arr, n, exp);
         }
     }
 

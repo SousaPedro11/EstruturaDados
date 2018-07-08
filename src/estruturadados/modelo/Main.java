@@ -1,252 +1,326 @@
 package estruturadados.modelo;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Random;
 
 public class Main {
 
-	public static void main(final String[] args) {
+    public static void main(final String[] args) {
 
-		/*
-		 * 1 - Leitura e ordenação do CSV Para utilizar basta descomentar e executar um
-		 * metodo por vez (inclusive no método no final)
-		 */
-		// Main.leituraCSV();
+        final OrdenaSelecao selection = new OrdenaSelecao();
+        final OrdenaQuick quick = new OrdenaQuick();
+        final OrdenaMerge merge = new OrdenaMerge();
+        final OrdenaHeap heap = new OrdenaHeap();
+        final OrdenaRadix radix = new OrdenaRadix();
+        /*
+         * 1 - Leitura e ordenação do CSV Para utilizar basta descomentar e executar um
+         * metodo por vez (inclusive no método no final)
+         */
+        // Main.leituraCSV();
 
-		// 2 - Implementar AVL e RB (inserção, busca e ordem simetrica)
+        // 2 - Implementar AVL e RB (inserção, busca e ordem simetrica)
 
-		/* 3 - Implementar ordenação */
-		/* SelectionSort */
-		Main.implementaSelectionSort();
+        /* 3 - Implementar ordenação */
+        /* SelectionSort */
+        System.out.println("SelectionSort");
+        Main.implementarOrdenacao(selection);
 
-		/* QuickSort */
-		Main.implementaQuick();
+        /* QuickSort */
+        System.out.println("QuickSort");
+        Main.implementarOrdenacao(quick);
 
-		/* MergeSort */
-		Main.implementaMerge();
+        /* MergeSort */
+        System.out.println("MergeSort");
+        Main.implementarOrdenacao(merge);
 
-		/* HeapSort */
-		Main.implementaHeap();
+        /* HeapSort */
+        System.out.println("HeapSort");
+        Main.implementarOrdenacao(heap);
 
-		/* Ordenação em tempo Linear */
-		Main.implementaRadix();
+        /* Ordenação em tempo Linear */
+        System.out.println("RadixSort");
+        // Main.implementaRadix();
+        Main.implementarOrdenacao(radix);
 
-		/* 4 - Implementar Lista, Pilha e Fila */
+        /* 4 - Implementar Lista, Pilha e Fila */
 
-		// Main.implementaLista();
+        // Main.implementaLista();
 
-		// Main.implementaPilha();
+        // Main.implementaPilha();
 
-		// Main.implementarFila();
+        // Main.implementarFila();
 
-	}
+    }
 
-	private static final int tam = 1000;
-	private static int[] arrayG = arrayRandomico();
+    private static final int tam = 1000;
 
-	/**
-	 * Método que implementa a leitura e ordenação do CSV
-	 */
-	@SuppressWarnings("unused")
-	private static void leituraCSV() {
+    private static int[] arrayG = Main.arrayRandomico();
 
-		final LerCSV leitura = new LerCSV();
-		leitura.lerJogadores();
-		// leitura.ordenaPorID(false);
-		leitura.ordenaPorAltura(false);
-		leitura.ordenaPorPeso(false);
-	}
+    /**
+     * Método que implementa a leitura e ordenação do CSV
+     */
+    @SuppressWarnings("unused")
+    private static void leituraCSV() {
 
-	/**
-	 * Método que implementa Lista Encadeada
-	 */
-	@SuppressWarnings("unused")
-	private static void implementaLista() {
+        final LerCSV leitura = new LerCSV();
+        leitura.lerJogadores();
+        // leitura.ordenaPorID(false);
+        leitura.ordenaPorAltura(false);
+        leitura.ordenaPorPeso(false);
+    }
 
-		final long tempoInicial = System.currentTimeMillis();
-		final Lista lista = new Lista();
-		System.out.println("INSERÇÃO NA LISTA");
-		lista.adicionarNoFim(5);
-		lista.adicionarNoFim(48);
-		lista.adicionarNoInicio(55);
-		lista.adicionarNoFim(4);
-		lista.adicionarNoInicio(3);
-		System.out.println("REMOÇÃO");
-		lista.remover(48);
-		lista.remover(4);
-		lista.remover(3);
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("Tempo de execução da Lista: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
+    /**
+     * Método que implementa Lista Encadeada
+     */
+    @SuppressWarnings("unused")
+    private static void implementaLista() {
 
-	/**
-	 * Método que implementa Pilha
-	 */
-	@SuppressWarnings("unused")
-	private static void implementaPilha() {
+        final long tempoInicial = System.currentTimeMillis();
+        final Lista lista = new Lista();
+        System.out.println("INSERÇÃO NA LISTA");
+        lista.adicionarNoFim(5);
+        lista.adicionarNoFim(48);
+        lista.adicionarNoInicio(55);
+        lista.adicionarNoFim(4);
+        lista.adicionarNoInicio(3);
+        System.out.println("REMOÇÃO");
+        lista.remover(48);
+        lista.remover(4);
+        lista.remover(3);
+        final long tempoFinal = System.currentTimeMillis();
+        System.out.printf("Tempo de execução da Lista: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    }
 
-		final long tempoInicial = System.currentTimeMillis();
-		final Pilha pilha = new Pilha();
-		System.out.println("INSERÇÃO NA PILHA");
-		pilha.adicionar(Main.randomico());
-		pilha.adicionar(Main.randomico());
-		pilha.adicionar(Main.randomico());
-		pilha.adicionar(Main.randomico());
-		pilha.adicionar(Main.randomico());
+    /**
+     * Método que implementa Pilha
+     */
+    @SuppressWarnings("unused")
+    private static void implementaPilha() {
 
-		System.out.println("REMOÇÃO");
-		pilha.remover();
+        final long tempoInicial = System.currentTimeMillis();
+        final Pilha pilha = new Pilha();
+        System.out.println("INSERÇÃO NA PILHA");
+        pilha.adicionar(Main.randomico());
+        pilha.adicionar(Main.randomico());
+        pilha.adicionar(Main.randomico());
+        pilha.adicionar(Main.randomico());
+        pilha.adicionar(Main.randomico());
 
-		pilha.remover();
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("Tempo de execução da Pilha: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
+        System.out.println("REMOÇÃO");
+        pilha.remover();
 
-	/**
-	 * Método que implementa Fila
-	 */
-	@SuppressWarnings("unused")
-	private static void implementarFila() {
+        pilha.remover();
+        final long tempoFinal = System.currentTimeMillis();
+        System.out.printf("Tempo de execução da Pilha: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    }
 
-		final long tempoInicial = System.currentTimeMillis();
-		final Fila fila = new Fila();
-		System.out.println("INSERÇÃO NA FILA");
-		fila.adicionar(Main.randomico());
-		fila.adicionar(Main.randomico());
-		fila.adicionar(Main.randomico());
-		fila.adicionar(Main.randomico());
-		fila.adicionar(Main.randomico());
-		System.out.println("REMOÇÃO");
-		fila.remover();
-		fila.remover();
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("Tempo de execução da Fila: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
+    /**
+     * Método que implementa Fila
+     */
+    @SuppressWarnings("unused")
+    private static void implementarFila() {
 
-	/**
-	 * Método que implementa SelectionSort
-	 */
-	@SuppressWarnings("unused")
-	private static void implementaSelectionSort() {
+        final long tempoInicial = System.currentTimeMillis();
+        final Fila fila = new Fila();
+        System.out.println("INSERÇÃO NA FILA");
+        fila.adicionar(Main.randomico());
+        fila.adicionar(Main.randomico());
+        fila.adicionar(Main.randomico());
+        fila.adicionar(Main.randomico());
+        fila.adicionar(Main.randomico());
+        System.out.println("REMOÇÃO");
+        fila.remover();
+        fila.remover();
+        final long tempoFinal = System.currentTimeMillis();
+        System.out.printf("Tempo de execução da Fila: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    }
 
-		final long tempoInicial = System.currentTimeMillis();
-		int[] array = arrayG.clone();
+    // /**
+    // * Método que implementa SelectionSort
+    // */
+    // @SuppressWarnings("unused")
+    // private static void implementaSelectionSort() {
+    //
+    // final long tempoInicial = System.currentTimeMillis();
+    // final int[] array = Main.arrayG.clone();
+    //
+    // final OrdenaSelecao selecao = new OrdenaSelecao();
+    // System.out.println("\nSELECTIONSORT");
+    // System.out.println("Entrada: ");
+    // selecao.imprimir(array);
+    // System.out.println();
+    // selecao.ordenar(array);
+    //
+    // System.out.println();
+    // System.out.println("Ordenada: ");
+    // selecao.imprimir(array);
+    // final long tempoFinal = System.currentTimeMillis();
+    // System.out.printf("\nTempo de execução da SelectionSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    // }
 
-		final OrdenaSelecao selecao = new OrdenaSelecao();
-		System.out.println("\nSELECTIONSORT");
-//		System.out.println("Entrada: ");
-//		selecao.imprimir(array);
-//		System.out.println();
-		selecao.ordenar(array);
+    // @SuppressWarnings("unused")
+    // private static void implementaQuick() {
+    //
+    // final long tempoInicial = System.currentTimeMillis();
+    // final int[] array = Main.arrayG.clone();
+    // final OrdenaQuick quick = new OrdenaQuick();
+    // System.out.println("\nQUICKSORT");
+    // System.out.println("Entrada:");
+    // quick.imprimir(array);
+    //
+    // quick.ordenar(array, 0, Main.tam - 1);
+    //
+    // System.out.println("Ordenado:");
+    // quick.imprimir(array);
+    // final long tempoFinal = System.currentTimeMillis();
+    // System.out.printf("Tempo de execução da QuickSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    // }
 
-//		System.out.println();
-//		System.out.println("Ordenada: ");
-//		selecao.imprimir(array);
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("\nTempo de execução da SelectionSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
+    // @SuppressWarnings("unused")
+    // private static void implementaMerge() {
+    //
+    // final long tempoInicial = System.currentTimeMillis();
+    // final int[] array = Main.arrayG.clone();
+    // final OrdenaMerge merge = new OrdenaMerge();
+    // System.out.println("\nMERGESORT");
+    // System.out.println("Entrada");
+    // merge.imprimir(array);
+    //
+    // merge.ordenar(array, 0, Main.tam - 1);
+    //
+    // System.out.println("\nOrdenado");
+    // merge.imprimir(array);
+    // System.out.println();
+    // final long tempoFinal = System.currentTimeMillis();
+    // System.out.printf("Tempo de execução da MergeSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    // }
 
-	@SuppressWarnings("unused")
-	private static void implementaQuick() {
+    // @SuppressWarnings("unused")
+    // private static void implementaHeap() {
+    //
+    // final long tempoInicial = System.currentTimeMillis();
+    // final int[] array = Main.arrayG.clone();
+    //
+    // final OrdenaHeap heap = new OrdenaHeap();
+    // System.out.println("\nHEAPSORT");
+    // System.out.println("Entrada");
+    // heap.imprimir(array);
+    //
+    // heap.ordenar(array);
+    //
+    // System.out.println("\nOrdenado");
+    // heap.imprimir(array);
+    // final long tempoFinal = System.currentTimeMillis();
+    // System.out.printf("Tempo de execução da HeapSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    // }
 
-		final long tempoInicial = System.currentTimeMillis();
-		int[]array = arrayG.clone();
-		final OrdenaQuick quick = new OrdenaQuick();
-		System.out.println("\nQUICKSORT");
-//		System.out.println("Entrada:");
-//		quick.imprimir(array);
+    // @SuppressWarnings("unused")
+    // private static void implementaRadix() {
+    //
+    // final long tempoInicial = System.currentTimeMillis();
+    // final int[] array = Main.arrayG.clone();
+    //
+    // final OrdenaRadix radix = new OrdenaRadix();
+    // System.out.println("\nRADIXSORT");
+    // System.out.println("Entrada");
+    // radix.imprimir(array, Main.tam);
+    //
+    // radix.ordenar(array, Main.tam);
+    //
+    // System.out.println("\nOrdenado");
+    // radix.imprimir(array, Main.tam);
+    // final long tempoFinal = System.currentTimeMillis();
+    // System.out.printf("\nTempo de execução da RadixSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+    // }
 
-		quick.sort(array, 0, Main.tam - 1);
+    @SuppressWarnings({ "unused", "unchecked" })
+    private static <T> void implementarOrdenacao(final T objeto) {
 
-//		System.out.println("Ordenado:");
-//		quick.imprimir(array);
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("Tempo de execução da QuickSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
+        final long tempoInicial = System.currentTimeMillis();
+        final int[] array = Main.arrayG.clone();
+        try {
+            Method ordenar;
+            if (OrdenaQuick.class.isAssignableFrom(objeto.getClass()) || OrdenaMerge.class.isAssignableFrom(objeto.getClass())) {
+                ordenar = objeto.getClass().getMethod("ordenar", int[].class, int.class, int.class);
+            } else if (OrdenaRadix.class.isAssignableFrom(objeto.getClass())) {
+                ordenar = objeto.getClass().getMethod("ordenar", int[].class, int.class);
+            } else {
+                ordenar = objeto.getClass().getMethod("ordenar", int[].class);
+            }
+            ordenar.setAccessible(true);
+            Method imprimir;
+            if (OrdenaRadix.class.isAssignableFrom(objeto.getClass())) {
+                imprimir = objeto.getClass().getMethod("imprimir", int[].class, int.class);
+            } else {
+                imprimir = objeto.getClass().getMethod("imprimir", int[].class);
+            }
+            imprimir.setAccessible(true);
 
-	@SuppressWarnings("unused")
-	private static void implementaMerge() {
+            System.out.println("Entrada");
+            Main.printOrdem(objeto, array, imprimir);
 
-		final long tempoInicial = System.currentTimeMillis();
-		int[]array = arrayG.clone();
-		final OrdenaMerge merge = new OrdenaMerge();
-		System.out.println("\nMERGESORT");
-//		System.out.println("Entrada");
-//		 merge.imprimir(array);
+            if (OrdenaQuick.class.isAssignableFrom(objeto.getClass()) || OrdenaMerge.class.isAssignableFrom(objeto.getClass())) {
+                ordenar.invoke(objeto, array, 0, Main.tam - 1);
+            } else if (OrdenaRadix.class.isAssignableFrom(objeto.getClass())) {
+                ordenar.invoke(objeto, array, Main.tam);
+            } else {
+                ordenar.invoke(objeto, array);
+            }
+            System.out.println("Saída");
+            Main.printOrdem(objeto, array, imprimir);
+        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
 
-		merge.sort(array, 0, Main.tam - 1);
+        final long tempoFinal = System.currentTimeMillis();
+        System.out.printf("Tempo de execução: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+        System.out.println();
+    }
 
-//		System.out.println("\nOrdenado");
-//		 merge.imprimir(array);
-		System.out.println();
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("Tempo de execução da MergeSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
+    @SuppressWarnings("unused")
+    private static <T> void printOrdem(final T objeto, final int[] array, final Method imprimir)
+                    throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-	@SuppressWarnings("unused")
-	private static void implementaHeap() {
+        if (OrdenaRadix.class.isAssignableFrom(objeto.getClass())) {
+            imprimir.invoke(objeto, array, Main.tam);
+        } else {
+            imprimir.invoke(objeto, array);
+        }
+        System.out.println();
+    }
 
-		final long tempoInicial = System.currentTimeMillis();
-		int[]array = arrayG.clone();
+    /**
+     * Método para randomizar valores
+     *
+     * @return int
+     */
+    @SuppressWarnings("unused")
+    private static int randomico() {
 
-		final OrdenaHeap heap = new OrdenaHeap();
-		System.out.println("\nHEAPSORT");
-//		System.out.println("Entrada");
-//		 heap.imprimir(array);
+        final Random rand = new Random();
+        final int max = 99;
+        final int min = 0;
+        return rand.nextInt(((max - min) + 1) + min);
+    }
 
-		heap.sort(array);
+    /**
+     * Método que cria uma matriz com números aleatórios
+     *
+     * @return int[]
+     */
+    @SuppressWarnings("unused")
+    private static int[] arrayRandomico() {
 
-//		System.out.println("\nOrdenado");
-//		 heap.imprimir(array);
-		System.out.println();
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("Tempo de execução da HeapSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
+        final int array[] = new int[Main.tam];
 
-	@SuppressWarnings("unused")
-	private static void implementaRadix() {
-
-		final long tempoInicial = System.currentTimeMillis();
-		int[]array = arrayG.clone();
-
-		final OrdenaRadix radix = new OrdenaRadix();
-		System.out.println("\nRADIXSORT");
-//		System.out.println("Entrada");
-//		 radix.imprimir(array, Main.tam);
-
-		OrdenaRadix.radixsort(array, Main.tam);
-
-//		System.out.println("\nOrdenado");
-//		 radix.imprimir(array, Main.tam);
-		final long tempoFinal = System.currentTimeMillis();
-		System.out.printf("\nTempo de execução da RadixSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-	}
-
-	/**
-	 * Método para randomizar valores
-	 *
-	 * @return int
-	 */
-	@SuppressWarnings("unused")
-	private static int randomico() {
-
-		final Random rand = new Random();
-		final int max = 99;
-		final int min = 0;
-		return rand.nextInt(((max - min) + 1) + min);
-	}
-
-	@SuppressWarnings("unused")
-	private static int[] arrayRandomico() {
-		final int array[] = new int[Main.tam];
-
-		final Random rand = new Random();
-		final int max = 99;
-		final int min = 0;
-		rand.nextInt(((max - min) + 1) + min);
-		for (int i = 0; i < Main.tam; i++) {
-			array[i] = rand.nextInt(((max - min) + 1) + min);
-		}
-		return array;
-	}
-
+        final Random rand = new Random();
+        final int max = 99;
+        final int min = 0;
+        rand.nextInt(((max - min) + 1) + min);
+        for (int i = 0; i < Main.tam; i++) {
+            array[i] = rand.nextInt(((max - min) + 1) + min);
+        }
+        return array;
+    }
 }

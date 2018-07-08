@@ -56,15 +56,15 @@ public class OrdenaMerge {
     }
 
     // Ordena a matriz maior usando o metodo merge()
-    public void sort(final int array[], final int inicio, final int fim) {
+    public void ordenar(final int array[], final int inicio, final int fim) {
 
         if (inicio < fim) {
             // Encontra o ponto medio
             final int pontomedio = (inicio + fim) / 2;
 
             // Ordena as duas matrizes
-            this.sort(array, inicio, pontomedio);
-            this.sort(array, pontomedio + 1, fim);
+            this.ordenar(array, inicio, pontomedio);
+            this.ordenar(array, pontomedio + 1, fim);
 
             // Une as matrizes
             this.merge(array, inicio, pontomedio, fim);
