@@ -89,14 +89,13 @@ public class LerCSV extends ObjetoBase<LerCSV> {
 
         final long tempoInicial = System.currentTimeMillis();
 
-        List<Jogador> objeto = new ArrayList<>();
-        objeto = this.jogadores;
+        final List<Jogador> objeto = new ArrayList<>(this.jogadores);
 
         int maior_i = 0;
 
-        for (int i = 0; i < this.jogadores.size(); i++) {
-            for (int j = 0; j < (this.jogadores.size() - i - 1); j++) {
-                if (this.jogadores.get(j).getId() > this.jogadores.get(j + 1).getId()) {
+        for (int i = 0; i < objeto.size(); i++) {
+            for (int j = 0; j < (objeto.size() - i - 1); j++) {
+                if (objeto.get(j).getId() > objeto.get(j + 1).getId()) {
                     final Jogador temp = objeto.get(j);
                     objeto.set(j, objeto.get(j + 1));
                     objeto.set(j + 1, temp);
@@ -128,14 +127,13 @@ public class LerCSV extends ObjetoBase<LerCSV> {
 
         final long tempoInicial = System.currentTimeMillis();
 
-        List<Jogador> objeto = new ArrayList<>();
-        objeto = this.jogadores;
+        final List<Jogador> objeto = new ArrayList<>(this.jogadores);
 
         int maior_i = 0;
 
-        for (int i = 0; i < this.jogadores.size(); i++) {
-            for (int j = 0; j < (this.jogadores.size() - i - 1); j++) {
-                if (this.jogadores.get(j).getPeso() > this.jogadores.get(j + 1).getPeso()) {
+        for (int i = 0; i < objeto.size(); i++) {
+            for (int j = 0; j < (objeto.size() - i - 1); j++) {
+                if (objeto.get(j).getPeso() > objeto.get(j + 1).getPeso()) {
                     final Jogador temp = objeto.get(j);
                     objeto.set(j, objeto.get(j + 1));
                     objeto.set(j + 1, temp);
@@ -166,14 +164,13 @@ public class LerCSV extends ObjetoBase<LerCSV> {
 
         final long tempoInicial = System.currentTimeMillis();
 
-        List<Jogador> objeto = new ArrayList<>();
-        objeto = this.jogadores;
+        final List<Jogador> objeto = new ArrayList<>(this.jogadores);
 
         int maior_i = 0;
 
-        for (int i = 0; i < this.jogadores.size(); i++) {
-            for (int j = 0; j < (this.jogadores.size() - i - 1); j++) {
-                if (this.jogadores.get(j).getAltura() > this.jogadores.get(j + 1).getAltura()) {
+        for (int i = 0; i < objeto.size(); i++) {
+            for (int j = 0; j < (objeto.size() - i - 1); j++) {
+                if (objeto.get(j).getAltura() > objeto.get(j + 1).getAltura()) {
                     final Jogador temp = objeto.get(j);
                     objeto.set(j, objeto.get(j + 1));
                     objeto.set(j + 1, temp);

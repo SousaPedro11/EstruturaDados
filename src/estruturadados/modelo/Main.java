@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Main {
 
+    @SuppressWarnings("unused")
     public static void main(final String[] args) {
 
         final OrdenaSelecao selection = new OrdenaSelecao();
@@ -23,25 +24,24 @@ public class Main {
 
         /* 3 - Implementar ordenação */
         /* SelectionSort */
-        System.out.println("SelectionSort");
-        Main.implementarOrdenacao(selection);
+        // System.out.println("SelectionSort");
+        // Main.implementarOrdenacao(selection);
 
         /* QuickSort */
-        System.out.println("QuickSort");
-        Main.implementarOrdenacao(quick);
+        // System.out.println("QuickSort");
+        // Main.implementarOrdenacao(quick);
 
         /* MergeSort */
-        System.out.println("MergeSort");
-        Main.implementarOrdenacao(merge);
+        // System.out.println("MergeSort");
+        // Main.implementarOrdenacao(merge);
 
         /* HeapSort */
-        System.out.println("HeapSort");
-        Main.implementarOrdenacao(heap);
+        // System.out.println("HeapSort");
+        // Main.implementarOrdenacao(heap);
 
         /* Ordenação em tempo Linear */
-        System.out.println("RadixSort");
-        // Main.implementaRadix();
-        Main.implementarOrdenacao(radix);
+        // System.out.println("RadixSort");
+        // Main.implementarOrdenacao(radix);
 
         /* 4 - Implementar Lista, Pilha e Fila */
 
@@ -65,9 +65,9 @@ public class Main {
 
         final LerCSV leitura = new LerCSV();
         leitura.lerJogadores();
-        // leitura.ordenaPorID(false);
-        leitura.ordenaPorAltura(false);
+        leitura.ordenaPorID(false);
         leitura.ordenaPorPeso(false);
+        leitura.ordenaPorAltura(false);
     }
 
     /**
@@ -136,105 +136,7 @@ public class Main {
         System.out.printf("Tempo de execução da Fila: %.3f ms%n", (float) (tempoFinal - tempoInicial));
     }
 
-    // /**
-    // * Método que implementa SelectionSort
-    // */
-    // @SuppressWarnings("unused")
-    // private static void implementaSelectionSort() {
-    //
-    // final long tempoInicial = System.currentTimeMillis();
-    // final int[] array = Main.arrayG.clone();
-    //
-    // final OrdenaSelecao selecao = new OrdenaSelecao();
-    // System.out.println("\nSELECTIONSORT");
-    // System.out.println("Entrada: ");
-    // selecao.imprimir(array);
-    // System.out.println();
-    // selecao.ordenar(array);
-    //
-    // System.out.println();
-    // System.out.println("Ordenada: ");
-    // selecao.imprimir(array);
-    // final long tempoFinal = System.currentTimeMillis();
-    // System.out.printf("\nTempo de execução da SelectionSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-    // }
-
-    // @SuppressWarnings("unused")
-    // private static void implementaQuick() {
-    //
-    // final long tempoInicial = System.currentTimeMillis();
-    // final int[] array = Main.arrayG.clone();
-    // final OrdenaQuick quick = new OrdenaQuick();
-    // System.out.println("\nQUICKSORT");
-    // System.out.println("Entrada:");
-    // quick.imprimir(array);
-    //
-    // quick.ordenar(array, 0, Main.tam - 1);
-    //
-    // System.out.println("Ordenado:");
-    // quick.imprimir(array);
-    // final long tempoFinal = System.currentTimeMillis();
-    // System.out.printf("Tempo de execução da QuickSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-    // }
-
-    // @SuppressWarnings("unused")
-    // private static void implementaMerge() {
-    //
-    // final long tempoInicial = System.currentTimeMillis();
-    // final int[] array = Main.arrayG.clone();
-    // final OrdenaMerge merge = new OrdenaMerge();
-    // System.out.println("\nMERGESORT");
-    // System.out.println("Entrada");
-    // merge.imprimir(array);
-    //
-    // merge.ordenar(array, 0, Main.tam - 1);
-    //
-    // System.out.println("\nOrdenado");
-    // merge.imprimir(array);
-    // System.out.println();
-    // final long tempoFinal = System.currentTimeMillis();
-    // System.out.printf("Tempo de execução da MergeSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-    // }
-
-    // @SuppressWarnings("unused")
-    // private static void implementaHeap() {
-    //
-    // final long tempoInicial = System.currentTimeMillis();
-    // final int[] array = Main.arrayG.clone();
-    //
-    // final OrdenaHeap heap = new OrdenaHeap();
-    // System.out.println("\nHEAPSORT");
-    // System.out.println("Entrada");
-    // heap.imprimir(array);
-    //
-    // heap.ordenar(array);
-    //
-    // System.out.println("\nOrdenado");
-    // heap.imprimir(array);
-    // final long tempoFinal = System.currentTimeMillis();
-    // System.out.printf("Tempo de execução da HeapSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-    // }
-
-    // @SuppressWarnings("unused")
-    // private static void implementaRadix() {
-    //
-    // final long tempoInicial = System.currentTimeMillis();
-    // final int[] array = Main.arrayG.clone();
-    //
-    // final OrdenaRadix radix = new OrdenaRadix();
-    // System.out.println("\nRADIXSORT");
-    // System.out.println("Entrada");
-    // radix.imprimir(array, Main.tam);
-    //
-    // radix.ordenar(array, Main.tam);
-    //
-    // System.out.println("\nOrdenado");
-    // radix.imprimir(array, Main.tam);
-    // final long tempoFinal = System.currentTimeMillis();
-    // System.out.printf("\nTempo de execução da RadixSort: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-    // }
-
-    @SuppressWarnings({ "unused", "unchecked" })
+    @SuppressWarnings({ "unused" })
     private static <T> void implementarOrdenacao(final T objeto) {
 
         final long tempoInicial = System.currentTimeMillis();
