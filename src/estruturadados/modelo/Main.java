@@ -4,6 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Random;
 
+import estruturadados.util.Reflexao;
+
 public class Main {
 
     @SuppressWarnings("unused")
@@ -14,11 +16,22 @@ public class Main {
         final OrdenaMerge merge = new OrdenaMerge();
         final OrdenaHeap heap = new OrdenaHeap();
         final OrdenaRadix radix = new OrdenaRadix();
+
+        final Jogador jogador1 = new Jogador(37348, "Canarinho", "Pistola", Reflexao.toDate("2018-06-15"), 180, 82);
         /*
          * 1 - Leitura e ordenação do CSV Para utilizar basta descomentar e executar um
          * metodo por vez (inclusive no método no final)
          */
+        /* Ordenação da lista */
         // Main.leituraCSV();
+
+        /* Inserção e remoção na lista */
+        // final LerCSV leitura = new LerCSV();
+        // leitura.lerJogadores();
+        // System.out.println("\nINSERIR NA LISTA");
+        // leitura.adicionarJogador(jogador1, false);
+        // System.out.println("\nREMOVER DA LISTA");
+        // leitura.removerJogador(1188, false);
 
         // 2 - Implementar AVL e RB (inserção, busca e ordem simetrica)
 

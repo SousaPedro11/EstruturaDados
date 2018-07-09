@@ -21,6 +21,8 @@ public class LerCSV extends ObjetoBase<LerCSV> {
 
     private final List<Jogador> jogadores = new ArrayList<>();
 
+    private List<Jogador> objetoaddrm = null;
+
     int i = 0;
 
     /**
@@ -74,7 +76,6 @@ public class LerCSV extends ObjetoBase<LerCSV> {
             System.out.println(this.i);
             e.printStackTrace();
         }
-
         // System.out.println(this.jogadores.size());
         final long tempoFinal = System.currentTimeMillis();
         System.out.printf("Tempo de execução da leitura: %.3f ms%n", (float) (tempoFinal - tempoInicial));
@@ -115,7 +116,6 @@ public class LerCSV extends ObjetoBase<LerCSV> {
         // System.out.println("Jogador com maior ID: " + objeto.get(maior_i));
         final long tempoFinal = System.currentTimeMillis();
         System.out.printf("Tempo de execução da ordenação por ID: %.3f ms%n", (float) (tempoFinal - tempoInicial));
-
     }
 
     /**
@@ -193,4 +193,58 @@ public class LerCSV extends ObjetoBase<LerCSV> {
 
     }
 
+    public void adicionarJogador(final Jogador jogador, final boolean print) {
+
+        this.objetoaddrm = new ArrayList<>(this.jogadores);
+        int posicao = 0;
+        final int antes = this.objetoaddrm.size();
+        this.objetoaddrm.add(jogador);
+        for (int i = 0; i < this.objetoaddrm.size(); i++) {
+            for (int j = 0; j < (this.objetoaddrm.size() - i - 1); j++) {
+                if (this.objetoaddrm.get(j).getId() > this.objetoaddrm.get(j + 1).getId()) {
+                    final Jogador temp = this.objetoaddrm.get(j);
+                    this.objetoaddrm.set(j, this.objetoaddrm.get(j + 1));
+                    this.objetoaddrm.set(j + 1, temp);
+                    if (this.objetoaddrm.get(j).getId() == jogador.getId()) {
+                        posicao = j;
+                    }
+                }
+            }
+        }
+        if (print) {
+            this.objetoaddrm.stream().forEach(f -> {
+                System.out.println("ID: " + f.getId() + "   Nome: " + f.getPrimeironome().concat(" ").concat(f.getApelido()));
+            });
+        }
+        System.out.printf("Jogador está na posicao %d da lista\n", posicao);
+        System.out.println(jogador);
+        System.out.printf("Tamanho da lista antes de inserir: %d\n", antes);
+        System.out.printf("Tamanho da lista depois de inserir: %d\n", this.objetoaddrm.size());
+    }
+
+    public void removerJogador(final int posicao, final boolean print) {
+
+        final Jogador removido;
+        List<Jogador> lista = null;
+        if (this.objetoaddrm != null) {
+            lista = new ArrayList<>(this.objetoaddrm);
+        } else {
+            lista = new ArrayList<>(this.jogadores);
+        }
+        final int antes = lista.size();
+        if ((posicao < lista.size()) && (posicao >= 0)) {
+            removido = lista.remove(posicao);
+            if (print) {
+                lista.stream().forEach(f -> {
+                    System.out.println("ID: " + f.getId() + "   Nome: " + f.getPrimeironome().concat(" ").concat(f.getApelido()));
+                });
+            }
+            System.out.printf("Jogador removido da posicao %d da lista\n", posicao);
+            System.out.println(removido);
+            System.out.printf("Tamanho da lista antes de remover: %d\n", antes);
+            System.out.printf("Tamanho da lista depois de remover: %d\n", lista.size());
+        } else {
+            System.out.printf("Registro não existe! Informe um indice válido (%d - %d)\n", 0, lista.size() - 1);
+        }
+    }
 }

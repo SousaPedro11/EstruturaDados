@@ -24,6 +24,20 @@ public class Jogador extends ObjetoBase<Jogador> {
     @AtribuirToString(prefixo = "Peso: ", sufixo = "\n")
     private int peso;
 
+    public Jogador() {
+
+    }
+
+    public Jogador(final int id, final String primeironome, final String apelido, final Date nascimento, final int altura, final int peso) {
+
+        this.id = id;
+        this.primeironome = primeironome;
+        this.apelido = apelido;
+        this.nascimento = nascimento;
+        this.altura = altura;
+        this.peso = peso;
+    }
+
     public int getId() {
 
         return this.id;
