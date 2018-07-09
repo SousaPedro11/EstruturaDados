@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Random;
 
+import estruturadados.arvores.AVL;
 import estruturadados.util.Reflexao;
 
 public class Main {
@@ -23,7 +24,7 @@ public class Main {
          * metodo por vez (inclusive no método no final)
          */
         /* Ordenação da lista */
-        Main.leituraCSV();
+        // Main.leituraCSV();
 
         /* Inserção e remoção na lista */
         // final LerCSV leitura = new LerCSV();
@@ -34,6 +35,16 @@ public class Main {
         // leitura.removerJogador(1188, false);
 
         // 2 - Implementar AVL e RB (inserção, busca e ordem simetrica)
+        final AVL avl = new AVL();
+        final int min = 1;
+        final int max = 10;
+        System.out.printf("Inserir valores %d para %d\n", min, max);
+        for (int i = min; i < max; i++) {
+            avl.insert(i);
+            // System.out.println("Imprime balanceado:");
+            avl.printBalance();
+
+        }
 
         /* 3 - Implementar ordenação */
         /* SelectionSort */
@@ -66,7 +77,7 @@ public class Main {
 
     }
 
-    private static final int tam = 10;
+    private static final int tam = 1000000;
 
     private static int[] arrayG = Main.arrayRandomico();
 
@@ -172,8 +183,8 @@ public class Main {
             }
             imprimir.setAccessible(true);
 
-            System.out.println("Entrada");
-            Main.printOrdem(objeto, array, imprimir);
+            // System.out.println("Entrada");
+            // Main.printOrdem(objeto, array, imprimir);
 
             if (OrdenaQuick.class.isAssignableFrom(objeto.getClass()) || OrdenaMerge.class.isAssignableFrom(objeto.getClass())) {
                 ordenar.invoke(objeto, array, 0, Main.tam - 1);
@@ -182,8 +193,8 @@ public class Main {
             } else {
                 ordenar.invoke(objeto, array);
             }
-            System.out.println("Saída");
-            Main.printOrdem(objeto, array, imprimir);
+            // System.out.println("Saída");
+            // Main.printOrdem(objeto, array, imprimir);
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             e.printStackTrace();
         }
