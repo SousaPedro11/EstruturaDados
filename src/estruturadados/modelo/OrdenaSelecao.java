@@ -16,9 +16,14 @@ public class OrdenaSelecao {
             }
 
             // Coloca o menor elemento na posição mais a esquerda
-            final int aux = array[menor_i];
-            array[menor_i] = array[i];
-            array[i] = aux;
+            // final int aux = array[menor_i];
+            // array[menor_i] = array[i];
+            // array[i] = aux;
+            if (array[i] != array[menor_i]) {
+                final int aux = array[i];
+                array[i] = array[menor_i];
+                array[menor_i] = aux;
+            }
 
             // System.out.printf("Passo %d: ", i + 1);
             // this.imprimir(array);

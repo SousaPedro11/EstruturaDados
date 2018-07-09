@@ -20,9 +20,11 @@ public class OrdenaQuick {
         // this.imprimir(array);
 
         // troca array[i+1] and array[final] (ou pivot)
-        final int temp = array[i + 1];
-        array[i + 1] = array[fim];
-        array[fim] = temp;
+        if (array[fim] < array[i + 1]) {
+            final int temp = array[i + 1];
+            array[i + 1] = array[fim];
+            array[fim] = temp;
+        }
         return i + 1;
     }
 

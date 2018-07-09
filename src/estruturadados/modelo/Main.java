@@ -23,7 +23,7 @@ public class Main {
          * metodo por vez (inclusive no método no final)
          */
         /* Ordenação da lista */
-        // Main.leituraCSV();
+        Main.leituraCSV();
 
         /* Inserção e remoção na lista */
         // final LerCSV leitura = new LerCSV();
@@ -66,7 +66,7 @@ public class Main {
 
     }
 
-    private static final int tam = 1000;
+    private static final int tam = 10;
 
     private static int[] arrayG = Main.arrayRandomico();
 

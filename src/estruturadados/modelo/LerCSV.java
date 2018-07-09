@@ -104,6 +104,18 @@ public class LerCSV extends ObjetoBase<LerCSV> {
             }
             maior_i = i;
         }
+        // boolean trocado;
+        // do {
+        // trocado = false;
+        // for (int i = 0; i < (objeto.size() - 2); i++) {
+        // if (objeto.get(i).getId() > objeto.get(i + 1).getId()) {
+        // final Jogador temp = objeto.get(i);
+        // objeto.set(i, objeto.get(i + 1));
+        // objeto.set(i + 1, temp);
+        // trocado = true;
+        // }
+        // }
+        // } while (trocado);
 
         if (print) {
             System.out.println("\nOrdenação por ID");
@@ -142,6 +154,19 @@ public class LerCSV extends ObjetoBase<LerCSV> {
             maior_i = i;
         }
 
+        // boolean trocado;
+        // do {
+        // trocado = false;
+        // for (int i = 0; i < (objeto.size() - 1); i++) {
+        // if (objeto.get(i).getPeso() > objeto.get(i + 1).getPeso()) {
+        // final Jogador temp = objeto.get(i);
+        // objeto.set(i, objeto.get(i + 1));
+        // objeto.set(i + 1, temp);
+        // trocado = true;
+        // }
+        // }
+        // } while (trocado);
+
         if (print) {
             System.out.println("\nOrdenação por Peso");
             objeto.stream().forEach(f -> {
@@ -178,6 +203,19 @@ public class LerCSV extends ObjetoBase<LerCSV> {
             }
             maior_i = i;
         }
+
+        // boolean trocado;
+        // do {
+        // trocado = false;
+        // for (int i = 0; i < (objeto.size() - 1); i++) {
+        // if (objeto.get(i).getAltura() > objeto.get(i + 1).getAltura()) {
+        // final Jogador temp = objeto.get(i);
+        // objeto.set(i, objeto.get(i + 1));
+        // objeto.set(i + 1, temp);
+        // trocado = true;
+        // }
+        // }
+        // } while (trocado);
 
         if (print) {
             System.out.println("\nOrdenação por Altura");
