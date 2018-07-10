@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import estruturadados.arvores.AVLTree;
-import estruturadados.arvores.NoAVLTree;
 import estruturadados.util.Reflexao;
 
 public class Main {
@@ -37,25 +36,26 @@ public class Main {
         // leitura.removerJogador(1188, false);
 
         // 2 - Implementar AVL e RB (inserção, busca e ordem simetrica)
-        // final AVL avl = new AVL();
-        // final int min = 1;
-        // final int max = 10;
-        // System.out.printf("Inserir valores %d para %d\n", min, max);
-        // for (int i = min; i < max; i++) {
-        // avl.insert(i);
-        // // System.out.println("Imprime balanceado:");
-        // avl.printBalance();
+        /*
+         * final AVL avl = new AVL();
+         * final int min = 1;
+         * final int max = 10;
+         * System.out.printf("Inserir valores %d para %d\n", min, max);
+         * for (int i = min; i < max; i++) {
+         * avl.insert(i);
+         * // System.out.println("Imprime balanceado:");
+         * avl.printBalance();
+         * }
+         */
+
+        // AVLTree avl = new AVLTree();
+        // final int n = 10;
+        // System.out.println("AVL");
         //
-        // }
-
-        AVLTree avl = new AVLTree();
-        final int n = 10;
-        System.out.println("AVL");
-
-        avl = Main.popularAvl(avl, n);
-        final ArrayList<NoAVLTree> ordem = avl.ordenar();
-        System.out.println("AVL Sort");
-        System.out.println(ordem);
+        // avl = Main.popularAvl(avl, n);
+        // final ArrayList<NoAVLTree> ordem = avl.ordenar();
+        // System.out.println("AVL Sort");
+        // System.out.println(ordem);
 
         /* 3 - Implementar ordenação */
         /* SelectionSort */
