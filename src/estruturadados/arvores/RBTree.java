@@ -20,6 +20,11 @@ public class RBTree extends ObjetoBase<RBTree> {
         this.raiz = new NoRBTree(key, false);
     }
 
+    private void rotacaoEsquerda(final NoRBTree noInicial) {
+final NoRBTree noDireita = noInicial.getDireita();
+noInicial.getDireita() = nod
+    }
+
     public static NoRBTree getSentinela() {
 
         return RBTree.sentinela;
