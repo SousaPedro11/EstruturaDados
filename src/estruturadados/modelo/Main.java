@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import estruturadados.arvores.AVLTree;
+import estruturadados.arvores.RBTree;
 import estruturadados.util.Reflexao;
 
 public class Main {
@@ -36,26 +37,28 @@ public class Main {
         // leitura.removerJogador(1188, false);
 
         // 2 - Implementar AVL e RB (inserção, busca e ordem simetrica)
-        /*
-         * final AVL avl = new AVL();
-         * final int min = 1;
-         * final int max = 10;
-         * System.out.printf("Inserir valores %d para %d\n", min, max);
-         * for (int i = min; i < max; i++) {
-         * avl.insert(i);
-         * // System.out.println("Imprime balanceado:");
-         * avl.printBalance();
-         * }
-         */
 
+        // final int n = 10000;
+        /* AVL */
+        // final long tempoInicial = System.currentTimeMillis();
         // AVLTree avl = new AVLTree();
-        // final int n = 10;
         // System.out.println("AVL");
         //
         // avl = Main.popularAvl(avl, n);
         // final ArrayList<NoAVLTree> ordem = avl.ordenar();
         // System.out.println("AVL Sort");
         // System.out.println(ordem);
+        // final long tempoFinal = System.currentTimeMillis();
+        // System.out.printf("Tempo de execução da AVL: %.3f ms%n", (float) (tempoFinal - tempoInicial));
+
+        /* RB */
+        // final long tempoInicial1 = System.currentTimeMillis();
+        // System.out.println("\nRB");
+        // RBTree rb = new RBTree();
+        // rb = Main.populaRB(rb, n);
+        // rb.ordenar();
+        // final long tempoFinal1 = System.currentTimeMillis();
+        // System.out.printf("\nTempo de execução da RB: %.3f ms%n", (float) (tempoFinal1 - tempoInicial1));
 
         /* 3 - Implementar ordenação */
         /* SelectionSort */
@@ -81,14 +84,14 @@ public class Main {
         /* 4 - Implementar Lista, Pilha e Fila */
 
         // Main.implementaLista();
-
+        //
         // Main.implementaPilha();
-
+        //
         // Main.implementarFila();
 
     }
 
-    private static final int tam = 1000000;
+    private static final int tam = 50000;
 
     private static int[] arrayG = Main.arrayRandomico();
 
@@ -237,6 +240,18 @@ public class Main {
         }
         System.out.println(listKey);
         return avl;
+    }
+
+    private static RBTree populaRB(final RBTree rb, final int n) {
+
+        final ArrayList<Integer> listKey = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            final int key = Main.randomico();
+            listKey.add(key);
+            rb.insere(key);
+        }
+        System.out.println(listKey);
+        return rb;
     }
 
     /**

@@ -23,7 +23,7 @@ public class NoRBTree extends ObjetoBase<NoRBTree> {
         this.pai = this.esquerda = this.direita = RBTree.getSentinela();
     }
 
-    private NoRBTree busca(final int key) {
+    public NoRBTree busca(final int key) {
 
         NoRBTree no = null;
         if ((key < this.key) && (this.esquerda != RBTree.getSentinela())) {
@@ -36,7 +36,7 @@ public class NoRBTree extends ObjetoBase<NoRBTree> {
         return no;
     }
 
-    private NoRBTree menor() {
+    public NoRBTree menor() {
 
         NoRBTree no = null;
         if (this.esquerda != RBTree.getSentinela()) {
@@ -48,7 +48,7 @@ public class NoRBTree extends ObjetoBase<NoRBTree> {
         return no;
     }
 
-    private NoRBTree maior() {
+    public NoRBTree maior() {
 
         NoRBTree no = null;
         if (this.direita != RBTree.getSentinela()) {
@@ -59,12 +59,12 @@ public class NoRBTree extends ObjetoBase<NoRBTree> {
         return no;
     }
 
-    private void ordenar() {
+    public void ordenar() {
 
         if (this.esquerda != RBTree.getSentinela()) {
             this.esquerda.ordenar();
         }
-        System.out.println(this.key + " ");
+        System.out.print(this.key + " ");
         if (this.direita != RBTree.getSentinela()) {
             this.direita.ordenar();
         }
@@ -82,7 +82,7 @@ public class NoRBTree extends ObjetoBase<NoRBTree> {
         return no;
     }
 
-    private NoRBTree sucessor() {
+    public NoRBTree sucessor() {
 
         NoRBTree no = null;
         if (this.direita != RBTree.getSentinela()) {
