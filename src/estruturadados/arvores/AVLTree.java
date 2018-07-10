@@ -2,11 +2,10 @@ package estruturadados.arvores;
 
 import java.util.ArrayList;
 
-import estruturadados.anotacao.AtribuirToString;
+import estruturadados.modelo.ObjetoBase;
 
-public class AVLTree {
+public class AVLTree extends ObjetoBase<AVLTree> {
 
-    @AtribuirToString
     protected NoAVLTree raiz;
 
     public void inserir(final int key) {
@@ -258,4 +257,20 @@ public class AVLTree {
         lista.add(no);
         this.ordenar(no.getDireita(), lista);
     }
+
+    // public void printBalance() {
+    //
+    // this.printBalance(this.raiz);
+    // System.out.println();
+    // }
+    //
+    // private void printBalance(final NoAVLTree n) {
+    //
+    // if (n != null) {
+    // this.printBalance(n.getEsquerda());
+    // System.out.printf("%s ", n.getBalanceamento());
+    // this.printBalance(n.getDireita());
+    // }
+    // }
+
 }

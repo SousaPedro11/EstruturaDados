@@ -49,13 +49,14 @@ public class Main {
         // }
 
         AVLTree avl = new AVLTree();
-        final int n = 100;
+        final int n = 10;
         System.out.println("AVL");
 
         avl = Main.popularAvl(avl, n);
         final ArrayList<NoAVLTree> ordem = avl.ordenar();
-        System.out.println("Avl Ordenado");
+        System.out.println("AVL Sort");
         System.out.println(ordem);
+
         /* 3 - Implementar ordenação */
         /* SelectionSort */
         // System.out.println("SelectionSort");
